@@ -2,12 +2,12 @@
   <div>Pokemon Cards</div>
   <table>
     <thead>
-      <th>Pokemon Count: {{pokeData.count}}</th>
+      <th>Pokemon Count: {{ pokeData.count }}</th>
     </thead>
     <tbody>
       <tr>
         {{
-            pokeData.results[0].name
+          pokeData.results[0].name
         }}
       </tr>
     </tbody>
@@ -21,19 +21,19 @@ export default {
   name: "CardsView",
   data() {
     return {
-      pokeData:[],
-      apiPokemon:undefined
+      pokeData: [],
+      apiPokemon: undefined,
     };
   },
-  created(){
+  created() {
     this.getNumPokeData();
   },
   methods: {
-    getNumPokeData(){
-      this.apiPokemon=new PokemonApiService();
+    getNumPokeData() {
+      this.apiPokemon = new PokemonApiService();
       this.apiPokemon
         .getAll()
-        .then((response)=>(this.pokeData=response.data));
+        .then((response) => (this.pokeData = response.data));
     },
   },
 };

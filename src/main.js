@@ -1,9 +1,23 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
+//Prime vue
+import PrimeVue from "primevue/config";
+import "primevue/resources/themes/saga-blue/theme.css";
+import "primevue/resources/primevue.min.css";
+import "primeicons/primeicons.css";
+//Primevue Components
+import Toolbar from "primevue/toolbar";
+import Button from "primevue/button";
+import SplitButton from "primevue/splitbutton";
 
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(router)
+app.use(PrimeVue);
+app.use(router);
 
-app.mount('#app')
+app.component("pv-toolbar", Toolbar);
+app.component("pv-button", Button);
+app.component("pv-splitbutton", SplitButton);
+
+app.mount("#app");
