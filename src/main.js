@@ -6,7 +6,8 @@ import PrimeVue from "primevue/config";
 import "primevue/resources/themes/saga-blue/theme.css";
 import "primevue/resources/primevue.min.css";
 import "primeicons/primeicons.css";
-//Primevue Components
+import "/node_modules/primeflex/primeflex.css";
+//Prime vue Components
 import Toolbar from "primevue/toolbar";
 import Button from "primevue/button";
 import SplitButton from "primevue/splitbutton";
