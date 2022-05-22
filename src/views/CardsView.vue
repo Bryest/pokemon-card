@@ -1,50 +1,45 @@
 <template>
   <label>Pokemon Count: {{ pokeData.count }}</label>
-
   <div>
-    <h3>Characteristics</h3>
-    <ul>
-      <li>Id #{{ pokeInfo.id }}</li>
-      <li>
-        <img v-bind:src="pokeInfo.sprites.front_default" alt="" />
-      </li>
-      <li>
-        {{ pokeData.results[0].name }}
-      </li>
-      <li>
-        {{ pokeData.results[0].url }}
-      </li>
-      <li>
-        {{ pokeInfo.types[0].type.name }} {{ pokeInfo.types[1].type.name }}
-      </li>
-      <li>
-        {{ pokeInfo.weight }}
-      </li>
-      <li>
-        {{ pokeInfo.stats[0].stat.name }} : {{ pokeInfo.stats[0].base_stat }}
-      </li>
-      <li>
-        {{ pokeInfo.stats[1].stat.name }} : {{ pokeInfo.stats[1].base_stat }}
-      </li>
-      <li>
-        {{ pokeInfo.stats[2].stat.name }} : {{ pokeInfo.stats[2].base_stat }}
-      </li>
-      <li>
-        {{ pokeInfo.stats[3].stat.name }} : {{ pokeInfo.stats[3].base_stat }}
-      </li>
-      <li>
-        {{ pokeInfo.stats[4].stat.name }} : {{ pokeInfo.stats[4].base_stat }}
-      </li>
-      <li>
-        {{ pokeInfo.stats[5].stat.name }} : {{ pokeInfo.stats[5].base_stat }}
-      </li>
-    </ul>
+    <div style="height: 100px; width: 100px"></div>
+    <pv-card >
+      <!--Title-->
+      <template #header>
+        <ul>
+          <li>Id #{{ pokeInfo.id }}</li>
+          <li>
+            <img v-bind:src="pokeInfo.sprites.front_default" alt="" />
+          </li>
+        </ul>
+      </template>
+
+      <!--Name-->
+      <template #content>
+        <h3>{{ pokeInfo.name }}</h3>
+        <a v-bind:href="pokedexUrl + pokeData.results[0].name"
+          ><i class="pi pi-external-link" style="font-size: 2em"></i
+        ></a>
+        <ul>
+          <li v-for="t in pokeInfo.types" :key="t.id">
+            {{ t.type.name }}
+          </li>
+        </ul>
+      </template>
+      <!--Characteristics-->
+      <template #footer>
+        <h3>Characteristics</h3>
+        <ul>
+          <li v-for="s in pokeInfo.stats" :key="s.id">
+            {{ s.stat.name }}: {{ s.base_stat }}
+          </li>
+        </ul>
+      </template>
+    </pv-card>
   </div>
 </template>
 
 <script>
 import { PokemonApiService } from "../services/pokemon.api.service";
-
 export default {
   name: "CardsView",
   data() {
@@ -52,6 +47,7 @@ export default {
       pokeData: [],
       pokeInfo: [],
       apiPokemon: undefined,
+      pokedexUrl: "https://pokemondb.net/pokedex/",
     };
   },
   created() {
