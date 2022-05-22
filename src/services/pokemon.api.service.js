@@ -5,7 +5,9 @@ export class PokemonApiService {
   getAll() {
     return http.get("/pokemon");
   }
-
+  getAllByRange(min, max) {
+    return http.get(`/pokemon?limit=${max}&offset=${min}`);
+  }
   getById(id) {
     return http.get(`/pokemon/${id}`);
   }

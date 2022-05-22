@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
+
 //Prime vue
 import PrimeVue from "primevue/config";
 
@@ -11,7 +12,7 @@ import "/node_modules/primeflex/primeflex.css";
 //Prime vue Components
 import Toolbar from "primevue/toolbar";
 import Button from "primevue/button";
-import Card from 'primevue/card';
+import Card from "primevue/card";
 
 const app = createApp(App);
 
