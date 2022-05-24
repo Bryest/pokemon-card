@@ -13,12 +13,14 @@ import "/node_modules/primeflex/primeflex.css";
 import Toolbar from "primevue/toolbar";
 import Button from "primevue/button";
 import Card from "primevue/card";
+import DataView from 'primevue/dataview';
 
 const app = createApp(App);
 
 app.use(PrimeVue);
 app.use(router);
 
+app.component("pv-data-view", DataView);
 app.component("pv-toolbar", Toolbar);
 app.component("pv-button", Button);
 app.component("pv-card", Card);

@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
 import CardsView from "../views/CardsView.vue";
 
 const router = createRouter({
@@ -7,8 +6,9 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: HomeView,
+      redirect: {
+        name: "cards-view",
+      },
     },
     {
       path: "/cards-view",
